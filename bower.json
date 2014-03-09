@@ -1,0 +1,25 @@
+{
+  "name": "lang",
+  "version": "1.0.0",
+  "homepage": "https://github.com/dbrekalo/lang",
+  "authors": [
+    "Damir Brekalo <dbrekalo@gmail.com>"
+  ],
+  "description": "JS Easy language labels managment",
+  "main": "dist/lang.min.js",
+  "keywords": [
+    "Language",
+    "labels"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  }
+}
