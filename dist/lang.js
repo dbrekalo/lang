@@ -1,14 +1,23 @@
-;(function($){
+;(function(){
 
 	var labels = {},
 		currentLang = 'en';
 
 	var langApi = {
 
-		get: function(key, lang){
+		get: function(key, replaceParams, askedlang){
 
-			if (!lang) { lang = currentLang; }
-			return labels[key] ? (labels[key][lang] ? labels[key][lang] : key) : key;
+			var lang = askedlang || (typeof replaceParams === 'string' ? replaceParams : currentLang),
+				replaceData = replaceParams && (replaceParams instanceof Array ? replaceParams : null),
+				label = labels[key] ? (labels[key][lang] ? labels[key][lang] : key) : key;
+
+			if (replaceData){
+				for (var i = 0; i < replaceData.length; i++) {
+					label = label.replace('{'+ (i+1) +'}', replaceData[i] );
+				}
+			}
+
+			return label;
 
 		},
 
@@ -32,16 +41,21 @@
 			return currentLang;
 		},
 
-		importLabels: function(labelData){
+		importLabels: function(labelsToImport){
 
-			labels = $.extend(labels, labelData);
+			if (!labelsToImport){ return; }
+
+			for (var key in labelsToImport) {
+				labels[key] = labelsToImport[key];
+			}
+
 			return langApi;
 
 		}
 
 	};
 
-	$.wk = $.wk || {};
-	$.wk.lang = langApi;
+	window.wk = window.wk || {};
+	window.wk.lang = langApi;
 
-})(jQuery || Zepto);
+})(window);
