@@ -1,6 +1,6 @@
 {
   "name": "lang",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/dbrekalo/lang",
   "authors": [
     "Damir Brekalo <dbrekalo@gmail.com>"
@@ -18,8 +18,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "jquery": ">=1.7"
-  }
+  ]
 }
