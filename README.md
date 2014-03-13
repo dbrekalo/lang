@@ -24,7 +24,7 @@ console.log(app.lang('hello', ['hi', 'Johnny'], 'hr')); // outputs 'Reci hi John
 
 ##Installation
 
-After including library file it is recommend to alias and bring library (that is initialy in $.wk.lang namespace) to your desired namespace.
+After including library file it is recommend to alias and bring library (that is initialy in window.wk.lang namespace) to your desired namespace.
  ```javascript
  app.langApi = window.wk.lang;
  app.lang = app.langApi.get;
